@@ -26,8 +26,11 @@ app.get('/', (request, response)=>{
 
 app.get('/api/:name', (request, response)=>{
    const rapperName = request.params.name.toLowerCase()
-   if (rappers[rapperName] )
-   response.json(rappers)
+   if (rappers[rapperName]){
+       response.json(rappers)
+   }else{
+       response.json(rappers['unknown'])
+   }
 })
 
 app.listen(PORT, ()=>{
